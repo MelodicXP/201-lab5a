@@ -134,10 +134,9 @@ function multiplyArray(inputArray) { //eslint-disable-line
   let productArray = multiply(inputArray[0], inputArray[1])[0];
   productArray = multiply(productArray, inputArray[2])[0];
 
-  let outputString = `The numbers ${inputArray[0]},${inputArray[1]},${inputArray[2]} have a product of ${productArray}.`;
+  let outputString = `The numbers ${inputArray} have a product of ${productArray}.`;
 
   outputArray.push(productArray, outputString);
-  console.log(outputArray);
   return outputArray;
 }
 
@@ -171,12 +170,12 @@ function multiplyAnyArray(dynamicArray) { //eslint-disable-line
 
   //Loops through array in multiplay each index i array
   //Used minus -1 since adding +1 in loop, avoids Nan error in the back end
-  for (let i = 0; i < dynamicArray.length - 1; i++) {
-
+  for (let i = 0; i < dynamicArray.length -1; i++) {
     product = multiply(product, dynamicArray[i + 1])[0];
   }
 
-  return [product , `The numbers ${dynamicArray} have a product of ${product}.`];
+  let outputString = `The numbers ${dynamicArray} have a product of ${product}.`;
+  return [product , outputString];
 }
 
 // Here is the test for multiplyArray(); uncomment it to run it
