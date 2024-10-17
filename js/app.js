@@ -64,19 +64,19 @@ function sumAndMultiply(a, b, c) { //eslint-disable-line
   let array = [];
 
   // Sum 3 numbers
-  let sumOfTwoNumbers = sum(a,b)[0];
-  let sumOfThreeNumbers = sum(sumOfTwoNumbers, c)[0];
+  let sumOfNumbers = sum(a,b)[0];
+  sumOfNumbers = sum(sumOfNumbers, c)[0];
   
   // Product of 3 numbers
-  let productOfTwoNumbers = multiply(a, b)[0];
-  let productOfThreeNumbers = multiply(productOfTwoNumbers, c)[0];
+  let productOfNumbers = multiply(a, b)[0];
+  productOfNumbers = multiply(productOfNumbers, c)[0];
   
   // Outcomes of sum and product in string form
-  let sumStringResult = `${a} and ${b} and ${c} sum to ${sumOfThreeNumbers}.`;
-  let productStringResult = `The product of ${a} and ${b} and ${c} is ${productOfThreeNumbers}.`;
+  let sumStringResult = `${a} and ${b} and ${c} sum to ${sumOfNumbers}.`;
+  let productStringResult = `The product of ${a} and ${b} and ${c} is ${productOfNumbers}.`;
   
   // Push to array
-  array.push(sumOfThreeNumbers, productOfThreeNumbers, sumStringResult, productStringResult);
+  array.push(sumOfNumbers, productOfNumbers, sumStringResult, productStringResult);
 
   return array;
 }
