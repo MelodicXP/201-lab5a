@@ -9,10 +9,13 @@ Test this function by hand in the console to get it working, and when you think 
 
 // Write your code here
 function sum(a, b) { //eslint-disable-line
-  let mySum = a + b;
-  let myStr = `The sum of ${a} and ${b} is ${mySum}.`;
+  let array = [];
 
-  return [mySum, myStr];
+  let sum = a + b;
+  let returnString = `The sum of ${a} and ${b} is ${sum}.`;
+
+  array.push(sum, returnString);
+  return array;
 }
 
 // Here is the test for sum(); uncomment it to run it
@@ -29,11 +32,15 @@ Write a function called multiply() that takes in two numbers as arguments and re
 Test this function by hand in the console to get it working, and when you think it is finished, uncomment the call for the testMultiply() function and see if the test passes.*/
 
 // Write your code here
-function multiply(a, b) { //eslint-disable-line
-  let myProduct = a * b;
-  let myStr = `The product of ${a} and ${b} is ${myProduct}.`;
+function multiply(a, b) { //eslint-disable-
+  let array = [];
 
-  return [myProduct, myStr];
+  let product = a * b;
+  let string = `The product of ${a} and ${b} is ${product}.`;
+
+  array.push(product, string);
+
+  return array;
 }
 
 // Here is the test for multiply(); uncomment it to run it
@@ -54,14 +61,24 @@ Test this function by hand in the console to get it working, and when you think 
 
 // Write your code here
 function sumAndMultiply(a, b, c) { //eslint-disable-line
-  let totalOne = sum(a, b)[0];
-  let totalTwo = sum(totalOne, c)[0];
-  let productOne = multiply(a, b)[0];
-  let productTwo = multiply(productOne, c)[0];
-  let myStrOne = `${a} and ${b} and ${c} sum to ${totalTwo}.`;
-  let myStrTwo = `The product of ${a} and ${b} and ${c} is ${productTwo}.`;
+  let array = [];
 
-  return[totalTwo, productTwo, myStrOne, myStrTwo ];
+  // Sum 3 numbers
+  let sumOfTwoNumbers = sum(a,b)[0];
+  let sumOfThreeNumbers = sum(sumOfTwoNumbers, c)[0];
+  
+  // Product of 3 numbers
+  let productOfTwoNumbers = multiply(a, b)[0];
+  let productOfThreeNumbers = multiply(productOfTwoNumbers, c)[0];
+  
+  // Outcomes of sum and product in string form
+  let sumStringResult = `${a} and ${b} and ${c} sum to ${sumOfThreeNumbers}.`;
+  let productStringResult = `The product of ${a} and ${b} and ${c} is ${productOfThreeNumbers}.`;
+  
+  // Push to array
+  array.push(sumOfThreeNumbers, productOfThreeNumbers, sumStringResult, productStringResult);
+
+  return array;
 }
 
 // Here is the test for sumAndMultiply(); uncomment it to run it
@@ -82,11 +99,16 @@ Test this function by hand in the console to get it working, and when you think 
 // Write your code here
 let testArray = [2, 3, 4]; //eslint-disable-line
 
-function sumArray(sumArr) { //eslint-disable-line
-  let totalOne = sum(sumArr[0], sumArr[1])[0];
-  let totalTwo = sum(totalOne, sumArr[2])[0];
+function sumArray(inputArray) { //eslint-disable-line
+  let outputArray = [];
 
-  return [totalTwo, `${sumArr} was passed in as an array of numbers, and ${totalTwo} is their sum.`];
+  let arrayTotal = sum(inputArray[0], inputArray[1])[0];
+  arrayTotal = sum(arrayTotal, inputArray[2])[0];
+
+  let resultString = `${inputArray} was passed in as an array of numbers, and ${arrayTotal} is their sum.`; 
+
+  outputArray.push(arrayTotal, resultString);
+  return outputArray;
 }
 
 // Here is the test for sumArray(); uncomment it to run it
@@ -106,11 +128,17 @@ IMPORTANT DETAIL: You may not use the arithmetic operator * in this function. To
 Test this function by hand in the console to get it working, and when you think it is finished, uncomment the call for the testMultiplyArray() function and see if the test passes.*/
 
 // Write your code here
-function multiplyArray(multArr) { //eslint-disable-line
-  let productOne = multiply(multArr[0], multArr[1])[0];
-  let productTwo = multiply(productOne, multArr[2])[0];
+function multiplyArray(inputArray) { //eslint-disable-line
+  let outputArray = [];
 
-  return [productTwo , `The numbers ${multArr} have a product of ${productTwo}.`];
+  let productArray = multiply(inputArray[0], inputArray[1])[0];
+  productArray = multiply(productArray, inputArray[2])[0];
+
+  let outputString = `The numbers ${inputArray[0]},${inputArray[1]},${inputArray[2]} have a product of ${productArray}.`;
+
+  outputArray.push(productArray, outputString);
+  console.log(outputArray);
+  return outputArray;
 }
 
 // Here is the test for multiplyArray(); uncomment it to run it
